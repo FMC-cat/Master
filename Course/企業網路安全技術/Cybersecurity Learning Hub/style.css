@@ -1,0 +1,52 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color, #f4f4f9);
+    color: var(--text-color, #333);
+}
+
+/* Main Content Styles */
+.content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.topics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.topics ul li {
+    margin-bottom: 10px;
+}
+
+.topics ul li a {
+    color: var(--link-color, #0066cc);
+    text-decoration: none;
+}
+
+.topics ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Dark Mode Variables */
+body[data-theme="dark"] {
+    --bg-color: #1e1e1e;
+    --text-color: #f4f4f9;
+    --link-color: #4ea1d3;
+}
