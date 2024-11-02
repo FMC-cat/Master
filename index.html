@@ -94,10 +94,10 @@
             margin: 1rem 0;
         }
 
-        #mindmap {
-            width: 100%;
-            height: 800px;
-            margin-top: 20px;
+        #ai-mindmap, #cloud-mindmap, #crypto-mindmap, #attack-mindmap, #vuln-mindmap {
+          width: 100%;
+          height: 800px;
+          margin-top: 20px;
         }
     </style>
 </head>
@@ -109,114 +109,2062 @@
         <a href="#" onclick="showPage('attack-defense')">網路攻防</a>
         <a href="#" onclick="showPage('vulnerability')">漏洞分析</a>
     </nav>
+      <!-- 載入所需的腳本 -->
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.3-alpha.1/dist/browser/index.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.3-alpha.1/dist/index.js"></script>
 
-    <div id="ai-security" class="page active">
-        <h1>AI與資訊安全</h1>
-
-        <div class="card">
-            <h2>人工智慧在資安領域的應用</h2>
-            <p>人工智慧技術正在改變資訊安全領域的遊戲規則，提供更智能的防禦機制和威脅檢測能力。</p>
-            <div class="highlight">
-                <h3>主要應用領域：</h3>
-                <ul>
-                    <li>威脅檢測與預防</li>
-                    <li>異常行為分析</li>
-                    <li>自動化回應系統</li>
-                    <li>風險評估</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>AI安全知識地圖</h2>
-            <svg id="mindmap"></svg>
-            <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.3-alpha.1/dist/browser/index.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.3-alpha.1/dist/index.js"></script>
-            <script>
-                (() => {
-                    const { markmap, mm } = window;
-                    const toolbar = new markmap.Toolbar();
-                    toolbar.attach(mm);
-                    const toolbarElement = toolbar.render();
-
-                    const data = {
+      <div id="ai-security" class="page active">
+          <h1>AI與資訊安全</h1>
+          <div class="card">
+              <h2>AI安全知識地圖</h2>
+              <svg id="ai-mindmap"></svg>
+              <script>
+                  (() => {
+                      // [AI 安全的 data 保持不變]
+                      const data = {
                         "content": "🤖 AI and Cybersecurity",
                         "children": [
+                        {
+                          content: "📑 目錄",
+                          children: [
                             {
-                                content: "📑 目錄",
-                                children: [
-                                    {
-                                        content: "1. 介紹 (Introduction)",
-                                        children: [],
-                                        payload: { lines: "3,4", listIndex: 1 },
-                                    },
-                                    {
-                                        content: "2. AI 革命 (The AI Revolution)",
-                                        children: [],
-                                        payload: { lines: "4,5", listIndex: 2 },
-                                    },
-                                    {
-                                        content: "3. AI 在網路安全中的應用 (AI in Cybersecurity)",
-                                        children: [],
-                                        payload: { lines: "5,6", listIndex: 3 },
-                                    },
-                                    {
-                                        content: "4. 高階 AI 帶來的安全威脅 (Increased Security Threats with Advanced AI)",
-                                        children: [],
-                                        payload: { lines: "6,7", listIndex: 4 },
-                                    },
-                                    {
-                                        content: "5. 保護應用程式的 AI 技術 (Techniques for Protecting Applications with AI)",
-                                        children: [],
-                                        payload: { lines: "7,8", listIndex: 5 },
-                                    },
-                                    {
-                                        content: "6. 自適應身份驗證 (Adaptive Authentication)",
-                                        children: [],
-                                        payload: { lines: "8,10", listIndex: 6 },
-                                    },
-                                ],
-                                payload: { lines: "2,3" },
+                              content: "1. 介紹 (Introduction)",
+                              children: [],
+                              payload: { lines: "3,4", listIndex: 1 },
                             },
-                            // ...其餘的data內容保持不變...
+                            {
+                              content: "2. AI 革命 (The AI Revolution)",
+                              children: [],
+                              payload: { lines: "4,5", listIndex: 2 },
+                            },
+                            {
+                              content: "3. AI 在網路安全中的應用 (AI in Cybersecurity)",
+                              children: [],
+                              payload: { lines: "5,6", listIndex: 3 },
+                            },
+                            {
+                              content:
+                                "4. 高階 AI 帶來的安全威脅 (Increased Security Threats with Advanced AI)",
+                              children: [],
+                              payload: { lines: "6,7", listIndex: 4 },
+                            },
+                            {
+                              content:
+                                "5. 保護應用程式的 AI 技術 (Techniques for Protecting Applications with AI)",
+                              children: [],
+                              payload: { lines: "7,8", listIndex: 5 },
+                            },
+                            {
+                              content: "6. 自適應身份驗證 (Adaptive Authentication)",
+                              children: [],
+                              payload: { lines: "8,10", listIndex: 6 },
+                            },
+                          ],
+                          payload: { lines: "2,3" },
+                        },
+                        {
+                          content: "1. 介紹 (Introduction)",
+                          children: [
+                            {
+                              content: "🔹 為什麼 AI 和網路安全很重要？",
+                              children: [
+                                {
+                                  content:
+                                    "科技進步帶來了便利與效率，但也帶來了新的挑戰和威脅。",
+                                  children: [],
+                                  payload: { lines: "15,16" },
+                                },
+                                {
+                                  content: "隨著 AI 的興起，網路安全的重要性不斷增長。",
+                                  children: [],
+                                  payload: { lines: "16,17" },
+                                },
+                                {
+                                  content: "AI 對網路安全領域既是機遇也是挑戰。",
+                                  children: [],
+                                  payload: { lines: "17,19" },
+                                },
+                              ],
+                              payload: { lines: "14,15" },
+                            },
+                            {
+                              content: "🔹 變化中的安全環境",
+                              children: [
+                                {
+                                  content: "隨著威脅者適應新技術，安全態勢不斷變化。",
+                                  children: [],
+                                  payload: { lines: "20,21" },
+                                },
+                                {
+                                  content:
+                                    "組織正越來越多地使用 AI 驅動的解決方案來進行威脅檢測、風險評估和事件回應。",
+                                  children: [],
+                                  payload: { lines: "21,22" },
+                                },
+                                {
+                                  content:
+                                    "然而，AI 也被惡意使用來創造更複雜的攻擊方式，如 AI 輔助的釣魚和智能惡意軟體。",
+                                  children: [],
+                                  payload: { lines: "22,24" },
+                                },
+                              ],
+                              payload: { lines: "19,20" },
+                            },
+                          ],
+                          payload: { lines: "12,13" },
+                        },
+                        {
+                          content: "2. AI 革命 (The AI Revolution)",
+                          children: [
+                            {
+                              content: "🔸 AI 發展歷程",
+                              children: [
+                                {
+                                  content: "1956年，John McCarthy 首次提出 AI 概念。",
+                                  children: [],
+                                  payload: { lines: "29,30" },
+                                },
+                                {
+                                  content:
+                                    "1980年代，機器學習 (ML) 與神經網路技術開始發展。",
+                                  children: [],
+                                  payload: { lines: "30,31" },
+                                },
+                                {
+                                  content:
+                                    "2010年代，深度學習 (Deep Learning) 的興起使得 AI 在圖像識別、語音識別等領域取得重大突破。",
+                                  children: [],
+                                  payload: { lines: "31,33" },
+                                },
+                              ],
+                              payload: { lines: "28,29" },
+                            },
+                            {
+                              content: "🔸 AI 技術的演變對網路安全的影響",
+                              children: [
+                                {
+                                  content:
+                                    "機器學習和深度學習技術已成為強大的安全工具，能有效檢測和應對威脅。",
+                                  children: [],
+                                  payload: { lines: "34,35" },
+                                },
+                                {
+                                  content:
+                                    "自然語言處理 (NLP) 被用來生成釣魚郵件、深偽 (Deepfake) 等社交工程攻擊。",
+                                  children: [],
+                                  payload: { lines: "35,36" },
+                                },
+                                {
+                                  content:
+                                    "強化學習 (RL) 幫助開發適應性強的網路安全工具，但也可用於生成攻擊策略。",
+                                  children: [],
+                                  payload: { lines: "36,38" },
+                                },
+                              ],
+                              payload: { lines: "33,34" },
+                            },
+                          ],
+                          payload: { lines: "26,27" },
+                        },
+                        {
+                          content: "3. AI 在網路安全中的應用 (AI in Cybersecurity)",
+                          children: [
+                            {
+                              content: "🔹 雙刃劍",
+                              children: [
+                                {
+                                  content:
+                                    "AI 提供了新的威脅檢測方法，使得網路安全變得更有效。",
+                                  children: [],
+                                  payload: { lines: "43,44" },
+                                },
+                                {
+                                  content:
+                                    "然而，AI 也可能被利用來發起更先進的網路攻擊，需平衡 AI 的利弊。",
+                                  children: [],
+                                  payload: { lines: "44,46" },
+                                },
+                              ],
+                              payload: { lines: "42,43" },
+                            },
+                            {
+                              content: "🔹 AI 對網路安全的積極影響",
+                              children: [
+                                {
+                                  content:
+                                    "1. <strong>威脅檢測</strong>: AI 系統可以快速分析大量數據，識別網路中的異常。",
+                                  children: [],
+                                  payload: { lines: "47,48", listIndex: 1 },
+                                },
+                                {
+                                  content:
+                                    "2. <strong>事件回應增強</strong>: AI 輔助的工具可以自動分析、優先排序和回應威脅。",
+                                  children: [],
+                                  payload: { lines: "48,49", listIndex: 2 },
+                                },
+                                {
+                                  content:
+                                    "3. <strong>預測分析</strong>: 基於歷史數據的分析，AI 幫助預測並防範未來攻擊。",
+                                  children: [],
+                                  payload: { lines: "49,50", listIndex: 3 },
+                                },
+                                {
+                                  content:
+                                    "4. <strong>自動化安全</strong>: AI 可以自動執行耗時的任務，讓安全專業人員專注於戰略性問題。",
+                                  children: [],
+                                  payload: { lines: "50,52", listIndex: 4 },
+                                },
+                              ],
+                              payload: { lines: "46,47" },
+                            },
+                          ],
+                          payload: { lines: "40,41" },
+                        },
+                        {
+                          content:
+                            "4. 高階 AI 帶來的安全威脅 (Increased Security Threats with Advanced AI)",
+                          children: [
+                            {
+                              content: "🔸 AI 驅動的網路攻擊",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>釣魚攻擊</strong>: AI 使用 NLP 生成精確的釣魚郵件，使受害者更難識別。",
+                                  children: [],
+                                  payload: { lines: "57,58" },
+                                },
+                                {
+                                  content:
+                                    "<strong>漏洞挖掘與利用</strong>: AI 驅動的工具可以自動檢測和利用系統漏洞。",
+                                  children: [],
+                                  payload: { lines: "58,59" },
+                                },
+                                {
+                                  content:
+                                    "<strong>智能惡意軟體與勒索軟體</strong>: AI 增強的惡意軟體可以更有效地繞過傳統防禦措施。",
+                                  children: [],
+                                  payload: { lines: "59,60" },
+                                },
+                                {
+                                  content:
+                                    "<strong>高級持續性威脅 (APTs) 和國家級攻擊</strong>: 利用 AI 的網路間諜活動和戰爭威脅全球穩定。",
+                                  children: [],
+                                  payload: { lines: "60,62" },
+                                },
+                              ],
+                              payload: { lines: "56,57" },
+                            },
+                            {
+                              content: "🔹 AI 對隱私和道德的影響",
+                              children: [
+                                {
+                                  content:
+                                    "AI 助長了大規模監控和隱私侵犯問題，如人臉識別和深偽技術。",
+                                  children: [],
+                                  payload: { lines: "63,64" },
+                                },
+                                {
+                                  content:
+                                    "AI 可能引發的全球網路武器競賽，增加了衝突的風險。",
+                                  children: [],
+                                  payload: { lines: "64,66" },
+                                },
+                              ],
+                              payload: { lines: "62,63" },
+                            },
+                          ],
+                          payload: { lines: "54,55" },
+                        },
+                        {
+                          content:
+                            "5. 保護應用程式的 AI 技術 (Techniques for Protecting Applications with AI)",
+                          children: [
+                            {
+                              content: "🔸 安全開發實踐",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>設計安全</strong>: 在設計階段融入安全措施，確保應用具有堅實的安全基礎。",
+                                  children: [],
+                                  payload: { lines: "71,72" },
+                                },
+                                {
+                                  content:
+                                    "<strong>程式碼審查</strong>: 定期審查程式碼，及早修復潛在漏洞。",
+                                  children: [],
+                                  payload: { lines: "72,73" },
+                                },
+                                {
+                                  content:
+                                    "<strong>安全測試</strong>: 進行靜態分析、動態分析、滲透測試等多種安全測試。",
+                                  children: [],
+                                  payload: { lines: "73,74" },
+                                },
+                                {
+                                  content:
+                                    "<strong>補丁管理</strong>: 定期更新軟體元件，降低攻擊風險。",
+                                  children: [],
+                                  payload: { lines: "74,76" },
+                                },
+                              ],
+                              payload: { lines: "70,71" },
+                            },
+                            {
+                              content: "🔸 應用安全技術",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>互動式應用安全測試 (IAST)</strong>: 在運行時檢測應用漏洞，提供即時回饋。",
+                                  children: [],
+                                  payload: { lines: "77,78" },
+                                },
+                                {
+                                  content:
+                                    "<strong>運行時應用自我保護 (RASP)</strong>: 在運行時監控和保護應用，阻止實時攻擊行為。",
+                                  children: [],
+                                  payload: { lines: "78,80" },
+                                },
+                              ],
+                              payload: { lines: "76,77" },
+                            },
+                            {
+                              content: "🔸 加密與數據保護",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>數據加密</strong>: 使用強加密演算法保護敏感數據。",
+                                  children: [],
+                                  payload: { lines: "81,82" },
+                                },
+                                {
+                                  content:
+                                    "<strong>安全通信通道</strong>: 使用 HTTPS 和 TLS 保護應用和用戶間的數據傳輸。",
+                                  children: [],
+                                  payload: { lines: "82,84" },
+                                },
+                              ],
+                              payload: { lines: "80,81" },
+                            },
+                          ],
+                          payload: { lines: "68,69" },
+                        },
+                        {
+                          content: "6. 自適應身份驗證 (Adaptive Authentication)",
+                          children: [
+                            {
+                              content: "🔹 機器學習方法分析",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>監督學習</strong>: 使用標記數據訓練模型，適用於標準化任務。",
+                                  children: [],
+                                  payload: { lines: "89,90" },
+                                },
+                                {
+                                  content:
+                                    "<strong>無監督學習</strong>: 讓模型自動分類未標記數據，適合識別大規模數據中的異常行為。",
+                                  children: [],
+                                  payload: { lines: "90,91" },
+                                },
+                                {
+                                  content:
+                                    "<strong>強化學習</strong>: 使用獎勵和懲罰機制，增強模型的學習效果。",
+                                  children: [],
+                                  payload: { lines: "91,93" },
+                                },
+                              ],
+                              payload: { lines: "88,89" },
+                            },
+                            {
+                              content: "🔹 PoC（概念驗證）實驗設計",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>時間相關數據</strong>: 使用 Isolation Forest 演算法進行異常檢測。",
+                                  children: [],
+                                  payload: { lines: "94,95" },
+                                },
+                                {
+                                  content:
+                                    "<strong>位置相關數據</strong>: 基於 IP 地址分群，使用高斯混合模型進行異常篩選。",
+                                  children: [],
+                                  payload: { lines: "95,96" },
+                                },
+                                {
+                                  content:
+                                    "<strong>設備相關數據</strong>: 使用 KDE（核密度估計）進行異常密度分析。",
+                                  children: [],
+                                  payload: { lines: "96,98" },
+                                },
+                              ],
+                              payload: { lines: "93,94" },
+                            },
+                          ],
+                          payload: { lines: "86,87" },
+                        },
+                      ],
+                      payload: { lines: "0,1" },
+                    };
+                    window.aiMindmap = markmap.Markmap.create("svg#ai-mindmap", null, data);
+                  })();
+              </script>
+          </div>
+      </div>
+
+      <div id="cloud-iot" class="page">
+          <h1>雲端與物聯網安全</h1>
+          <div class="card">
+              <h2>雲端與物聯網安全知識地圖</h2>
+              <svg id="cloud-mindmap"></svg>
+              <script>
+                  (() => {
+                      // [雲端安全的 data 保持不變]
+                      const data = {
+                        "content": "☁️ Cloud and IoT Security",
+                        children: [
+                        {
+                          content: "📑 目錄",
+                          children: [
+                            {
+                              content: "1. 雲端運算 (Cloud Computing)",
+                              children: [],
+                              payload: { lines: "3,4", listIndex: 1 },
+                            },
+                            {
+                              content: "2. 雲端安全概念 (Cloud Security Concepts)",
+                              children: [],
+                              payload: { lines: "4,5", listIndex: 2 },
+                            },
+                            {
+                              content:
+                                "3. 雲端安全風險與對策 (Cloud Security Risks and Countermeasures)",
+                              children: [],
+                              payload: { lines: "5,6", listIndex: 3 },
+                            },
+                            {
+                              content: "4. 雲端安全服務 (Cloud Security As A Service)",
+                              children: [],
+                              payload: { lines: "6,7", listIndex: 4 },
+                            },
+                            {
+                              content:
+                                "5. 開源雲端安全模組 (An Open-Source Cloud Security Module)",
+                              children: [],
+                              payload: { lines: "7,8", listIndex: 5 },
+                            },
+                            {
+                              content: "6. 物聯網 (The Internet of Things, IoT)",
+                              children: [],
+                              payload: { lines: "8,9", listIndex: 6 },
+                            },
+                            {
+                              content:
+                                "7. IoT 安全概念與目標 (IoT Security Concepts and Objectives)",
+                              children: [],
+                              payload: { lines: "9,10", listIndex: 7 },
+                            },
+                            {
+                              content:
+                                "8. 開源 IoT 安全模組 (An Open-Source IoT Security Module)",
+                              children: [],
+                              payload: { lines: "10,12", listIndex: 8 },
+                            },
+                          ],
+                          payload: { lines: "0,1" },
+                        },
+                        {
+                          content: "1. 雲端運算 (Cloud Computing)",
+                          children: [
+                            {
+                              content: "🔹 雲端運算定義 (NIST 定義)",
+                              children: [
+                                {
+                                  content: "提供隨時隨地的網路存取，快速配置和釋放資源。",
+                                  children: [],
+                                  payload: { lines: "17,19" },
+                                },
+                              ],
+                              payload: { lines: "16,17" },
+                            },
+                            {
+                              content: "🔹 雲端服務模型",
+                              children: [
+                                {
+                                  content:
+                                    "1. <strong>SaaS</strong>: 提供應用軟體服務，避免安裝和維護負擔。",
+                                  children: [],
+                                  payload: { lines: "20,21", listIndex: 1 },
+                                },
+                                {
+                                  content:
+                                    "2. <strong>PaaS</strong>: 提供平台服務，支持應用開發和部署。",
+                                  children: [],
+                                  payload: { lines: "21,22", listIndex: 2 },
+                                },
+                                {
+                                  content:
+                                    "3. <strong>IaaS</strong>: 提供基礎設施資源，如虛擬機器、存儲和網路。",
+                                  children: [],
+                                  payload: { lines: "22,24", listIndex: 3 },
+                                },
+                              ],
+                              payload: { lines: "19,20" },
+                            },
+                            {
+                              content: "🔹 雲端部署模型",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>公有雲</strong>: 由第三方提供，通常是多租戶架構，具有成本優勢但安全性較低。",
+                                  children: [],
+                                  payload: { lines: "25,26" },
+                                },
+                                {
+                                  content:
+                                    "<strong>私有雲</strong>: 內部管理，適合高度安全需求的組織。",
+                                  children: [],
+                                  payload: { lines: "26,27" },
+                                },
+                                {
+                                  content:
+                                    "<strong>社區雲</strong>: 多組織共享，具有相似需求和合規要求。",
+                                  children: [],
+                                  payload: { lines: "27,28" },
+                                },
+                                {
+                                  content:
+                                    "<strong>混合雲</strong>: 結合多種雲模式，敏感數據在私有雲，其他數據在公有雲。",
+                                  children: [],
+                                  payload: { lines: "28,30" },
+                                },
+                              ],
+                              payload: { lines: "24,25" },
+                            },
+                          ],
+                          payload: { lines: "14,15" },
+                        },
+                        {
+                          content: "2. 雲端安全概念 (Cloud Security Concepts)",
+                          children: [
+                            {
+                              content: "🔸 雲端安全參考架構",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>NIST SP 500-292</strong>: 提供雲端服務的高階需求和操作模型，方便理解雲端運行的複雜性。",
+                                  children: [],
+                                  payload: { lines: "35,37" },
+                                },
+                              ],
+                              payload: { lines: "34,35" },
+                            },
+                          ],
+                          payload: { lines: "32,33" },
+                        },
+                        {
+                          content:
+                            "3. 雲端安全風險與對策 (Cloud Security Risks and Countermeasures)",
+                          children: [
+                            {
+                              content: "🔹 主要安全威脅 (依嚴重性排序)",
+                              children: [
+                                {
+                                  content:
+                                    "1. <strong>數據洩露</strong>: 未授權的數據存取或洩露。",
+                                  children: [],
+                                  payload: { lines: "42,43", listIndex: 1 },
+                                },
+                                {
+                                  content:
+                                    "2. <strong>弱身份和訪問管理</strong>: 認證不足可能導致數據暴露。",
+                                  children: [],
+                                  payload: { lines: "43,44", listIndex: 2 },
+                                },
+                                {
+                                  content:
+                                    "3. <strong>不安全的 API</strong>: API 需強化認證和加密。",
+                                  children: [],
+                                  payload: { lines: "44,45", listIndex: 3 },
+                                },
+                                {
+                                  content:
+                                    "4. <strong>系統漏洞</strong>: 需要定期進行漏洞檢測和補丁管理。",
+                                  children: [],
+                                  payload: { lines: "45,46", listIndex: 4 },
+                                },
+                                {
+                                  content:
+                                    "5. <strong>帳戶劫持</strong>: 使用雙重驗證和監控。",
+                                  children: [],
+                                  payload: { lines: "46,47", listIndex: 5 },
+                                },
+                                {
+                                  content:
+                                    "6. <strong>惡意內部人員</strong>: 加強供應鏈管理與人力資源審查。",
+                                  children: [],
+                                  payload: { lines: "47,48", listIndex: 6 },
+                                },
+                                {
+                                  content:
+                                    "7. <strong>APT</strong>: 採取威脅情報來防範長期未被發現的攻擊。",
+                                  children: [],
+                                  payload: { lines: "48,49", listIndex: 7 },
+                                },
+                                {
+                                  content:
+                                    "8. <strong>數據丟失</strong>: 確保 CSP 的數據備份和冗餘措施。",
+                                  children: [],
+                                  payload: { lines: "49,50", listIndex: 8 },
+                                },
+                                {
+                                  content:
+                                    "9. <strong>缺乏盡職調查</strong>: CSP 應遵循行業最佳實踐。",
+                                  children: [],
+                                  payload: { lines: "50,51", listIndex: 9 },
+                                },
+                                {
+                                  content:
+                                    "10. <strong>濫用雲服務</strong>: 嚴格的註冊和檢查。",
+                                  children: [],
+                                  payload: { lines: "51,52", listIndex: 10 },
+                                },
+                                {
+                                  content:
+                                    "11. <strong>DoS 攻擊</strong>: 採用自動化工具進行威脅檢測。",
+                                  children: [],
+                                  payload: { lines: "52,53", listIndex: 11 },
+                                },
+                                {
+                                  content:
+                                    "12. <strong>共享技術漏洞</strong>: 使用強認證和安全配置。",
+                                  children: [],
+                                  payload: { lines: "53,55", listIndex: 12 },
+                                },
+                              ],
+                              payload: { lines: "41,42" },
+                            },
+                            {
+                              content: "🔸 STRIDE 威脅模型 (Microsoft)",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>Spoofing (身份欺騙)</strong>: 強化認證來防止身份欺騙。",
+                                  children: [],
+                                  payload: { lines: "56,57" },
+                                },
+                                {
+                                  content:
+                                    "<strong>Tampering (數據篡改)</strong>: 保護數據完整性。",
+                                  children: [],
+                                  payload: { lines: "57,58" },
+                                },
+                                {
+                                  content:
+                                    "<strong>Repudiation (否認)</strong>: 使用系統記錄非否認性證據。",
+                                  children: [],
+                                  payload: { lines: "58,59" },
+                                },
+                                {
+                                  content:
+                                    "<strong>Information Disclosure (信息披露)</strong>: 採取加密措施。",
+                                  children: [],
+                                  payload: { lines: "59,60" },
+                                },
+                                {
+                                  content:
+                                    "<strong>DoS (拒絕服務)</strong>: 保證系統可用性。",
+                                  children: [],
+                                  payload: { lines: "60,61" },
+                                },
+                                {
+                                  content:
+                                    "<strong>Elevation of Privilege (權限提升)</strong>: 嚴格的授權控制。",
+                                  children: [],
+                                  payload: { lines: "61,63" },
+                                },
+                              ],
+                              payload: { lines: "55,56" },
+                            },
+                          ],
+                          payload: { lines: "39,40" },
+                        },
+                        {
+                          content: "4. 雲端安全服務 (Cloud Security As A Service)",
+                          children: [
+                            {
+                              content: "🔸 雲端中的開源安全模組",
+                              children: [
+                                {
+                                  content:
+                                    "例如 <strong>OpenStack</strong>，具備身份、令牌、服務目錄和政策等主要服務，支持多租戶 IaaS，適用於公有和私有雲。",
+                                  children: [],
+                                  payload: { lines: "68,70" },
+                                },
+                              ],
+                              payload: { lines: "67,68" },
+                            },
+                          ],
+                          payload: { lines: "65,66" },
+                        },
+                        {
+                          content:
+                            "5. 開源雲端安全模組 (An Open-Source Cloud Security Module)",
+                          children: [
+                            {
+                              content: "🔹 OpenStack 的 Keystone 模組",
+                              children: [
+                                {
+                                  content:
+                                    "Keystone 提供身份、令牌、服務目錄和政策等關鍵安全服務，適用於 OpenStack 雲端架構。",
+                                  children: [],
+                                  payload: { lines: "75,77" },
+                                },
+                              ],
+                              payload: { lines: "74,75" },
+                            },
+                          ],
+                          payload: { lines: "72,73" },
+                        },
+                        {
+                          content: "6. 物聯網 (The Internet of Things, IoT)",
+                          children: [
+                            {
+                              content: "🔸 IoT 定義",
+                              children: [
+                                {
+                                  content:
+                                    "IoT 指的是智能設備之間的互聯，設備通常嵌入短距無線收發器以支持人與物、物與物之間的通信。",
+                                  children: [],
+                                  payload: { lines: "82,84" },
+                                },
+                              ],
+                              payload: { lines: "81,82" },
+                            },
+                            {
+                              content: "🔸 IoT 系統的發展",
+                              children: [
+                                {
+                                  content: "1. 信息技術 (IT)",
+                                  children: [],
+                                  payload: { lines: "85,86", listIndex: 1 },
+                                },
+                                {
+                                  content: "2. 操作技術 (OT)",
+                                  children: [],
+                                  payload: { lines: "86,87", listIndex: 2 },
+                                },
+                                {
+                                  content: "3. 個人技術 (如智能手機)",
+                                  children: [],
+                                  payload: { lines: "87,88", listIndex: 3 },
+                                },
+                                {
+                                  content: "4. 感測器和執行器技術",
+                                  children: [],
+                                  payload: { lines: "88,90", listIndex: 4 },
+                                },
+                              ],
+                              payload: { lines: "84,85" },
+                            },
+                          ],
+                          payload: { lines: "79,80" },
+                        },
+                        {
+                          content:
+                            "7. IoT 安全概念與目標 (IoT Security Concepts and Objectives)",
+                          children: [
+                            {
+                              content: "🔹 IoT 安全挑戰",
+                              children: [
+                                {
+                                  content:
+                                    "大量的攻擊面、設備資源有限、標準分散、更新困難、安全責任不明確等。",
+                                  children: [],
+                                  payload: { lines: "95,97" },
+                                },
+                              ],
+                              payload: { lines: "94,95" },
+                            },
+                            {
+                              content: "🔹 IoT 安全目標",
+                              children: [
+                                {
+                                  content:
+                                    "1. <strong>限制邏輯訪問</strong>: 使用防火牆等分離 IoT 與企業網絡。",
+                                  children: [],
+                                  payload: { lines: "98,99", listIndex: 1 },
+                                },
+                                {
+                                  content:
+                                    "2. <strong>限制物理訪問</strong>: 使用物理訪問控制（如門禁卡、鎖）。",
+                                  children: [],
+                                  payload: { lines: "99,100", listIndex: 2 },
+                                },
+                                {
+                                  content:
+                                    "3. <strong>保護個別 IoT 元件</strong>: 限制用戶權限、部署安全更新。",
+                                  children: [],
+                                  payload: { lines: "100,101", listIndex: 3 },
+                                },
+                                {
+                                  content:
+                                    "4. <strong>防止數據未授權修改</strong>: 在數據傳輸和存儲時保護其完整性。",
+                                  children: [],
+                                  payload: { lines: "101,102", listIndex: 4 },
+                                },
+                                {
+                                  content:
+                                    "5. <strong>事件檢測</strong>: 早期偵測並打斷攻擊鏈。",
+                                  children: [],
+                                  payload: { lines: "102,103", listIndex: 5 },
+                                },
+                                {
+                                  content:
+                                    "6. <strong>在不利條件下保持功能</strong>: 設計冗餘並確保安全降級。",
+                                  children: [],
+                                  payload: { lines: "103,104", listIndex: 6 },
+                                },
+                                {
+                                  content:
+                                    "7. <strong>事件後恢復</strong>: 制定並測試事件響應計劃。",
+                                  children: [],
+                                  payload: { lines: "104,106", listIndex: 7 },
+                                },
+                              ],
+                              payload: { lines: "97,98" },
+                            },
+                            {
+                              content: "🔹 防篡改和檢測",
+                              children: [
+                                {
+                                  content:
+                                    "使用堅硬材料、特殊密封及感測器等來避免和偵測篡改。",
+                                  children: [],
+                                  payload: { lines: "107,109" },
+                                },
+                              ],
+                              payload: { lines: "106,107" },
+                            },
+                          ],
+                          payload: { lines: "92,93" },
+                        },
+                        {
+                          content:
+                            "8. 開源 IoT 安全模組 (An Open-Source IoT Security Module)",
+                          children: [
+                            {
+                              content: "🔹 MiniSec 模組",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>MiniSec</strong> 是 TinyOS 系統中的開源安全模組，針對嵌入式設備的記憶體和功耗限制進行優化。",
+                                  children: [],
+                                  payload: { lines: "114,115" },
+                                },
+                                {
+                                  content:
+                                    "<strong>特性</strong>: 提供數據認證、機密性、重放保護，支持單一來源和多來源通訊模式。",
+                                  children: [],
+                                  payload: { lines: "115,116" },
+                                },
+                                {
+                                  content:
+                                    "<strong>加密算法</strong>: 使用 Skipjack 加密演算法（80 位元密鑰），運算效率高且內存佔用少。",
+                                  children: [],
+                                  payload: { lines: "116,118" },
+                                },
+                              ],
+                              payload: { lines: "113,114" },
+                            },
+                          ],
+                          payload: { lines: "111,112" },
+                        },
+                      ]
+                    };
+                    window.cloudMindmap = markmap.Markmap.create("svg#cloud-mindmap", null, data);
+                  })();
+              </script>
+          </div>
+      </div>
+
+      <div id="cryptography" class="page">
+          <h1>密碼學與加密技術</h1>
+          <div class="card">
+              <h2>密碼學知識地圖</h2>
+              <svg id="crypto-mindmap"></svg>
+              <script>
+                  (() => {
+                      // [密碼學的 data 保持不變]
+                      const data = {
+                        "content": "🔐 Cryptography and Encryption Technology",
+                        "children": [
+                          {
+                            content: "📑 目錄",
+                            children: [
+                              {
+                                content: "1. 信息安全概念 (Information Security Concepts)",
+                                children: [],
+                                payload: { lines: "3,4", listIndex: 1 },
+                              },
+                              {
+                                content: "2. 對稱密鑰加密 (Symmetric Key Cryptography)",
+                                children: [],
+                                payload: { lines: "4,5", listIndex: 2 },
+                              },
+                              {
+                                content: "3. 公鑰加密 (Public Key Cryptography)",
+                                children: [],
+                                payload: { lines: "5,6", listIndex: 3 },
+                              },
+                              {
+                                content: "4. 密碼雜湊函數 (Cryptographic Hash Functions)",
+                                children: [],
+                                payload: { lines: "6,7", listIndex: 4 },
+                              },
+                              {
+                                content: "5. 數位簽章 (Digital Signatures)",
+                                children: [],
+                                payload: { lines: "7,8", listIndex: 5 },
+                              },
+                              {
+                                content: "6. 密鑰管理 (Cryptographic Key Management)",
+                                children: [],
+                                payload: { lines: "8,9", listIndex: 6 },
+                              },
+                              {
+                                content: "7. 傳輸層安全協定 (Transport Layer Security, TLS)",
+                                children: [],
+                                payload: { lines: "9,11", listIndex: 7 },
+                              },
+                            ],
+                            payload: { lines: "2,3" },
+                          },
+                          {
+                            content: "1. 信息安全概念 (Information Security Concepts)",
+                            children: [
+                              {
+                                content: "🔹 安全目標",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>機密性 (Confidentiality)</strong>: 保護數據免於未授權的披露。",
+                                    children: [],
+                                    payload: { lines: "16,17" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>完整性 (Integrity)</strong>: 確保數據和系統未經未授權的改動。",
+                                    children: [],
+                                    payload: { lines: "17,18" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>可用性 (Availability)</strong>: 確保系統及服務隨時可供授權用戶使用。",
+                                    children: [],
+                                    payload: { lines: "18,20" },
+                                  },
+                                ],
+                                payload: { lines: "15,16" },
+                              },
+                              {
+                                content: "🔹 安全攻擊分類",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>被動攻擊 (Passive Attacks)</strong>: 監聽或分析訊息，不影響系統資源。",
+                                    children: [
+                                      {
+                                        content: "釋放訊息內容",
+                                        children: [],
+                                        payload: { lines: "22,23" },
+                                      },
+                                      {
+                                        content: "流量分析",
+                                        children: [],
+                                        payload: { lines: "23,24" },
+                                      },
+                                    ],
+                                    payload: { lines: "21,24" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>主動攻擊 (Active Attacks)</strong>: 嘗試改變系統資源或其運行。",
+                                    children: [
+                                      {
+                                        content: "冒充 (Masquerade)",
+                                        children: [],
+                                        payload: { lines: "25,26" },
+                                      },
+                                      {
+                                        content: "重播 (Replay)",
+                                        children: [],
+                                        payload: { lines: "26,27" },
+                                      },
+                                      {
+                                        content: "數據修改 (Data Modification)",
+                                        children: [],
+                                        payload: { lines: "27,28" },
+                                      },
+                                      {
+                                        content: "拒絕服務 (Denial of Service)",
+                                        children: [],
+                                        payload: { lines: "28,30" },
+                                      },
+                                    ],
+                                    payload: { lines: "24,30" },
+                                  },
+                                ],
+                                payload: { lines: "20,21" },
+                              },
+                              {
+                                content: "🔹 認證 (Authentication)",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>同伴實體認證 (Peer Entity Authentication)</strong>",
+                                    children: [],
+                                    payload: { lines: "31,32" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>數據來源認證 (Data Origin Authentication)</strong>",
+                                    children: [],
+                                    payload: { lines: "32,34" },
+                                  },
+                                ],
+                                payload: { lines: "30,31" },
+                              },
+                              {
+                                content: "🔹 存取控制 (Access Control)",
+                                children: [
+                                  {
+                                    content: "限制並控制對系統的存取權限，須先進行身份驗證。",
+                                    children: [],
+                                    payload: { lines: "35,37" },
+                                  },
+                                ],
+                                payload: { lines: "34,35" },
+                              },
+                            ],
+                            payload: { lines: "13,14" },
+                          },
+                          {
+                            content: "2. 對稱密鑰加密 (Symmetric Key Cryptography)",
+                            children: [
+                              {
+                                content: "🔸 高級加密標準 (AES)",
+                                children: [
+                                  {
+                                    content:
+                                      "由美國 NIST 在 2001 年設立，取代 DES 和 3DES，具更高安全性。",
+                                    children: [],
+                                    payload: { lines: "42,43" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>AES 參數</strong>: 不同模式與密鑰長度提供不同安全強度。",
+                                    children: [],
+                                    payload: { lines: "43,45" },
+                                  },
+                                ],
+                                payload: { lines: "41,42" },
+                              },
+                            ],
+                            payload: { lines: "39,40" },
+                          },
+                          {
+                            content: "3. 公鑰加密 (Public Key Cryptography)",
+                            children: [
+                              {
+                                content: "🔸 公鑰密碼系統的應用",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>加密/解密</strong>: 以接收者公鑰加密訊息。",
+                                    children: [],
+                                    payload: { lines: "50,51" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>數位簽章</strong>: 使用發送者私鑰進行訊息簽名。",
+                                    children: [],
+                                    payload: { lines: "51,52" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>密鑰交換</strong>: 雙方協作交換會話密鑰。",
+                                    children: [],
+                                    payload: { lines: "52,54" },
+                                  },
+                                ],
+                                payload: { lines: "49,50" },
+                              },
+                              {
+                                content: "🔸 RSA 演算法",
+                                children: [
+                                  {
+                                    content: "最廣泛使用的公鑰加密演算法。",
+                                    children: [],
+                                    payload: { lines: "55,56" },
+                                  },
+                                  {
+                                    content:
+                                      "透過公開密鑰 PU={e, n} 和私鑰 PR={d, n} 進行加密解密。",
+                                    children: [],
+                                    payload: { lines: "56,58" },
+                                  },
+                                ],
+                                payload: { lines: "54,55" },
+                              },
+                              {
+                                content: "🔸 Diffie-Hellman 密鑰交換",
+                                children: [
+                                  {
+                                    content:
+                                      "用於安全地交換對稱密鑰，依賴於離散對數計算的困難性。",
+                                    children: [],
+                                    payload: { lines: "59,61" },
+                                  },
+                                ],
+                                payload: { lines: "58,59" },
+                              },
+                            ],
+                            payload: { lines: "47,48" },
+                          },
+                          {
+                            content: "4. 密碼雜湊函數 (Cryptographic Hash Functions)",
+                            children: [
+                              {
+                                content: "🔸 雜湊函數特性",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>單向性</strong>: 計算上無法從雜湊值推回原始數據。",
+                                    children: [],
+                                    payload: { lines: "66,67" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>碰撞抗性</strong>: 難以找到相同雜湊值的不同數據。",
+                                    children: [],
+                                    payload: { lines: "67,69" },
+                                  },
+                                ],
+                                payload: { lines: "65,66" },
+                              },
+                            ],
+                            payload: { lines: "63,64" },
+                          },
+                          {
+                            content: "5. 數位簽章 (Digital Signatures)",
+                            children: [
+                              {
+                                content: "🔸 NIST 數位簽章演算法 (DSA)",
+                                children: [
+                                  {
+                                    content:
+                                      "使用 SHA 演算法進行簽章，最新版本包含 RSA 和橢圓曲線簽章。",
+                                    children: [],
+                                    payload: { lines: "74,76" },
+                                  },
+                                ],
+                                payload: { lines: "73,74" },
+                              },
+                            ],
+                            payload: { lines: "71,72" },
+                          },
+                          {
+                            content: "6. 密鑰管理 (Cryptographic Key Management)",
+                            children: [
+                              {
+                                content: "🔸 X.509 憑證",
+                                children: [
+                                  {
+                                    content:
+                                      "依賴於公鑰密碼技術和數位簽章，由受信的憑證授權機構 (CA) 發行。",
+                                    children: [],
+                                    payload: { lines: "81,82" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>憑證元素</strong>: 版本、序號、簽名演算法、發行者名稱、有效期、使用者公鑰等。",
+                                    children: [],
+                                    payload: { lines: "82,84" },
+                                  },
+                                ],
+                                payload: { lines: "80,81" },
+                              },
+                            ],
+                            payload: { lines: "78,79" },
+                          },
+                          {
+                            content: "7. 傳輸層安全協定 (Transport Layer Security, TLS)",
+                            children: [
+                              {
+                                content: "🔸 TLS 協定概述",
+                                children: [
+                                  {
+                                    content:
+                                      "定義於 RFC 5246，從 SSL 發展而來，用於保護互聯網數據傳輸。",
+                                    children: [],
+                                    payload: { lines: "89,90" },
+                                  },
+                                  {
+                                    content: "<strong>服務</strong>: 保密性、訊息完整性。",
+                                    children: [],
+                                    payload: { lines: "90,92" },
+                                  },
+                                ],
+                                payload: { lines: "88,89" },
+                              },
+                              {
+                                content: "🔸 TLS 記錄協定",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>機密性</strong>: 使用協商的密鑰加密 TLS 資料。",
+                                    children: [],
+                                    payload: { lines: "93,94" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>訊息完整性</strong>: 使用訊息認證碼 (MAC) 保護資料。",
+                                    children: [],
+                                    payload: { lines: "94,96" },
+                                  },
+                                ],
+                                payload: { lines: "92,93" },
+                              },
+                              {
+                                content: "🔸 SSL/TLS 攻擊類型",
+                                children: [
+                                  {
+                                    content: "<strong>握手協定攻擊</strong>",
+                                    children: [],
+                                    payload: { lines: "97,98" },
+                                  },
+                                  {
+                                    content: "<strong>記錄與應用數據協定攻擊</strong>",
+                                    children: [],
+                                    payload: { lines: "98,99" },
+                                  },
+                                  {
+                                    content: "<strong>PKI 攻擊</strong>",
+                                    children: [],
+                                    payload: { lines: "99,101" },
+                                  },
+                                ],
+                                payload: { lines: "96,97" },
+                              },
+                              {
+                                content: "🔸 TLS 1.3 特性",
+                                children: [
+                                  {
+                                    content: "移除部分弱安全選項，如壓縮、非認證加密等。",
+                                    children: [],
+                                    payload: { lines: "102,103" },
+                                  },
+                                  {
+                                    content:
+                                      "採用 Diffie-Hellman 或橢圓曲線 Diffie-Hellman 進行密鑰交換。",
+                                    children: [],
+                                    payload: { lines: "103,105" },
+                                  },
+                                ],
+                                payload: { lines: "101,102" },
+                              },
+                              {
+                                content: "🔸 HTTPS",
+                                children: [
+                                  {
+                                    content: "HTTP 的加密版本，提供加密、數據完整性、認證。",
+                                    children: [],
+                                    payload: { lines: "106,108" },
+                                  },
+                                ],
+                                payload: { lines: "105,106" },
+                              },
+                            ],
+                            payload: { lines: "86,87" },
+                          },
+                          {
+                            content: "8. 安全殼層協定 (Secure Shell, SSH)",
+                            children: [
+                              {
+                                content: "🔹 SSH 功能",
+                                children: [
+                                  {
+                                    content:
+                                      "提供安全的遠端登入與數據傳輸能力，是 Telnet 的安全替代方案。",
+                                    children: [],
+                                    payload: { lines: "113,114" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>版本</strong>: SSH1（早期）和 SSH2（改進安全性）。",
+                                    children: [],
+                                    payload: { lines: "114,116" },
+                                  },
+                                ],
+                                payload: { lines: "112,113" },
+                              },
+                              {
+                                content: "🔹 SSH 認證方法",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>公鑰認證</strong>: 客戶端使用私鑰簽名，伺服器驗證。",
+                                    children: [],
+                                    payload: { lines: "117,118" },
+                                  },
+                                  {
+                                    content: "<strong>密碼認證</strong>: 傳送加密密碼。",
+                                    children: [],
+                                    payload: { lines: "118,119" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>主機認證</strong>: 客戶端主機的認證，而非用戶直接認證。",
+                                    children: [],
+                                    payload: { lines: "119,121" },
+                                  },
+                                ],
+                                payload: { lines: "116,117" },
+                              },
+                              {
+                                content: "🔹 通道機制",
+                                children: [
+                                  {
+                                    content:
+                                      "<strong>通道類型</strong>: 遠端執行、X11、TCP 轉發 (Port Forwarding)。",
+                                    children: [],
+                                    payload: { lines: "122,123" },
+                                  },
+                                  {
+                                    content:
+                                      "<strong>通道生命週期</strong>: 開通、數據傳輸、關閉。",
+                                    children: [],
+                                    payload: { lines: "123,125" },
+                                  },
+                                ],
+                                payload: { lines: "121,122" },
+                              },
+                            ],
+                            payload: { lines: "110,111" },
+                          },
                         ],
                         payload: { lines: "0,1" },
                     };
-                    window.mm = markmap.Markmap.create("svg#mindmap", null, data);
-                })();
-            </script>
-        </div>
+                    window.cryptoMindmap = markmap.Markmap.create("svg#crypto-mindmap", null, data);
+                  })();
+              </script>
+          </div>
+      </div>
 
-        <div class="card">
-            <h2>AI安全挑戰</h2>
-            <ul>
-                <li>對抗性攻擊（Adversarial Attacks）</li>
-                <li>模型投毒（Model Poisoning）</li>
-                <li>資料隱私保護</li>
-                <li>AI模型安全性驗證</li>
-            </ul>
-        </div>
-    </div>
+      <div id="attack-defense" class="page">
+          <h1>網路攻防</h1>
+          <div class="card">
+              <h2>網路攻防知識地圖</h2>
+              <svg id="attack-mindmap"></svg>
+              <script>
+                  (() => {
+                      // [網路攻防的 data 保持不變]
+                      const data = {
+                        "content": "🛡️ Cyber Attack and Defense",
+                        "children": [
+                        {
+                          content: "📑 目錄",
+                          children: [
+                            {
+                              content: "1. 介紹 (Introduction)",
+                              children: [],
+                              payload: { lines: "3,4", listIndex: 1 },
+                            },
+                            {
+                              content: "2. 網路殺傷鏈 (Cyber Kill Chain)",
+                              children: [
+                                {
+                                  content: "偵察 (Reconnaissance)",
+                                  children: [],
+                                  payload: { lines: "5,6" },
+                                },
+                                {
+                                  content: "武器化 (Weaponization)",
+                                  children: [],
+                                  payload: { lines: "6,7" },
+                                },
+                                {
+                                  content: "傳送 (Delivery)",
+                                  children: [],
+                                  payload: { lines: "7,8" },
+                                },
+                                {
+                                  content: "利用 (Exploitation)",
+                                  children: [],
+                                  payload: { lines: "8,9" },
+                                },
+                                {
+                                  content: "安裝 (Installation)",
+                                  children: [],
+                                  payload: { lines: "9,10" },
+                                },
+                                {
+                                  content: "指揮與控制 (Command &amp; Control, C2)",
+                                  children: [],
+                                  payload: { lines: "10,11" },
+                                },
+                                {
+                                  content: "執行目標 (Actions on Objectives)",
+                                  children: [],
+                                  payload: { lines: "11,13" },
+                                },
+                              ],
+                              payload: { lines: "4,13", listIndex: 2 },
+                            },
+                          ],
+                          payload: { lines: "2,3" },
+                        },
+                        {
+                          content: "1. 介紹 (Introduction)",
+                          children: [
+                            {
+                              content: "🔹 網路威脅的日益複雜化",
+                              children: [
+                                {
+                                  content:
+                                    "隨著網路威脅越來越複雜，安全措施必須變得更加動態和強健。",
+                                  children: [],
+                                  payload: { lines: "18,19" },
+                                },
+                                {
+                                  content:
+                                    "<strong>道德駭客</strong>: 使用駭客技術強化系統安全，通常由白帽駭客執行。",
+                                  children: [],
+                                  payload: { lines: "19,20" },
+                                },
+                                {
+                                  content:
+                                    "<strong>滲透測試</strong>: 模擬潛在攻擊者的手段以發現和加強系統弱點。",
+                                  children: [],
+                                  payload: { lines: "20,22" },
+                                },
+                              ],
+                              payload: { lines: "17,18" },
+                            },
+                            {
+                              content: "🔹 Cyber Kill Chain 概念",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>網路殺傷鏈 (CKC)</strong>: 七階段模型，協助理解並反制高階持續性威脅 (APT) 攻擊者的行為。",
+                                  children: [],
+                                  payload: { lines: "23,25" },
+                                },
+                              ],
+                              payload: { lines: "22,23" },
+                            },
+                          ],
+                          payload: { lines: "15,16" },
+                        },
+                        {
+                          content: "2. 網路殺傷鏈 (Cyber Kill Chain)",
+                          children: [
+                            {
+                              content: "🔸 偵察 (Reconnaissance)",
+                              children: [
+                                {
+                                  content:
+                                    "1. <strong>被動偵察</strong>: 非侵入性收集目標系統的信息，避免被偵測。",
+                                  children: [],
+                                  payload: { lines: "30,31", listIndex: 1 },
+                                },
+                                {
+                                  content:
+                                    "2. <strong>主動偵察</strong>: 直接與目標互動以獲取更多詳細資訊，例如 IP 位址和網路服務。",
+                                  children: [],
+                                  payload: { lines: "31,32", listIndex: 2 },
+                                },
+                                {
+                                  content:
+                                    "3. <strong>人為因素的弱點</strong>: 許多系統的弱點來自於人為錯誤或內部洩漏。",
+                                  children: [],
+                                  payload: { lines: "32,34", listIndex: 3 },
+                                },
+                              ],
+                              payload: { lines: "29,30" },
+                            },
+                            {
+                              content: "🔸 武器化 (Weaponization)",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>製作惡意代碼</strong>: 設計特定的攻擊工具來利用系統弱點，包含後門、反向殼及綁定殼等。",
+                                  children: [],
+                                  payload: { lines: "35,36" },
+                                },
+                                {
+                                  content:
+                                    "<strong>Metasploit 框架</strong>: 滲透測試中常用的工具，提供大量的漏洞利用方法。",
+                                  children: [],
+                                  payload: { lines: "36,38" },
+                                },
+                              ],
+                              payload: { lines: "34,35" },
+                            },
+                            {
+                              content: "🔸 傳送 (Delivery)",
+                              children: [
+                                {
+                                  content: "將惡意代碼傳送至目標的階段，常見方式包含：",
+                                  children: [
+                                    {
+                                      content:
+                                        "<strong>釣魚攻擊</strong>: 利用社交工程，通過電子郵件或訊息進行騙取。",
+                                      children: [],
+                                      payload: { lines: "40,41" },
+                                    },
+                                    {
+                                      content:
+                                        "<strong>高階持續威脅 (APT)</strong>: 針對特定目標進行高效且協調的攻擊。",
+                                      children: [],
+                                      payload: { lines: "41,43" },
+                                    },
+                                  ],
+                                  payload: { lines: "39,43" },
+                                },
+                              ],
+                              payload: { lines: "38,39" },
+                            },
+                            {
+                              content: "🔸 利用 (Exploitation)",
+                              children: [
+                                {
+                                  content:
+                                    "攻擊者利用系統漏洞來實施惡意代碼並獲取未授權的存取權限。",
+                                  children: [],
+                                  payload: { lines: "44,45" },
+                                },
+                                {
+                                  content: "常見漏洞：",
+                                  children: [
+                                    {
+                                      content:
+                                        "<strong>伺服器端請求偽造 (SSRF)</strong>: 利用伺服器來存取其他內部資源。",
+                                      children: [],
+                                      payload: { lines: "46,47" },
+                                    },
+                                    {
+                                      content:
+                                        "<strong>緩衝區溢位</strong>: 修改程式行為，造成惡意代碼的執行。",
+                                      children: [],
+                                      payload: { lines: "47,48" },
+                                    },
+                                    {
+                                      content:
+                                        "<strong>暴力破解</strong>: 嘗試所有可能的密碼組合來解鎖系統或數據。",
+                                      children: [],
+                                      payload: { lines: "48,50" },
+                                    },
+                                  ],
+                                  payload: { lines: "45,50" },
+                                },
+                              ],
+                              payload: { lines: "43,44" },
+                            },
+                            {
+                              content: "🔸 安裝 (Installation)",
+                              children: [
+                                {
+                                  content:
+                                    "攻擊者在系統中建立穩定的據點，並尋求權限提升來取得更高級的訪問。",
+                                  children: [],
+                                  payload: { lines: "51,52" },
+                                },
+                                {
+                                  content:
+                                    "<strong>附加核心監視器 (AKO)</strong>: 一種防禦工具，用於監控並防止未授權的權限提升。",
+                                  children: [],
+                                  payload: { lines: "52,54" },
+                                },
+                              ],
+                              payload: { lines: "50,51" },
+                            },
+                            {
+                              content: "🔸 指揮與控制 (Command &amp; Control, C2)",
+                              children: [
+                                {
+                                  content:
+                                    "攻擊者在系統中建立指揮控制管道，操控受感染的系統。",
+                                  children: [],
+                                  payload: { lines: "55,56" },
+                                },
+                                {
+                                  content: "技術：",
+                                  children: [
+                                    {
+                                      content:
+                                        "<strong>Tor 網域前置</strong>: 使用 Tor 網路掩蓋 C2 流量。",
+                                      children: [],
+                                      payload: { lines: "57,58" },
+                                    },
+                                    {
+                                      content:
+                                        "<strong>域名生成算法 (DGA)</strong>: 動態生成多個域名來與 C2 伺服器通訊，難以阻止。",
+                                      children: [],
+                                      payload: { lines: "58,60" },
+                                    },
+                                  ],
+                                  payload: { lines: "56,60" },
+                                },
+                              ],
+                              payload: { lines: "54,55" },
+                            },
+                            {
+                              content: "🔸 執行目標 (Actions on Objectives)",
+                              children: [
+                                {
+                                  content:
+                                    "攻擊者達成其最終目標的階段，常見的攻擊目標包含：",
+                                  children: [
+                                    {
+                                      content:
+                                        "<strong>勒索軟體</strong>: 加密受害者數據並要求贖金。",
+                                      children: [],
+                                      payload: { lines: "62,63" },
+                                    },
+                                    {
+                                      content:
+                                        "<strong>加密劫持</strong>: 未經授權地使用受害者的計算資源進行加密貨幣挖掘。",
+                                      children: [],
+                                      payload: { lines: "63,65" },
+                                    },
+                                  ],
+                                  payload: { lines: "61,65" },
+                                },
+                              ],
+                              payload: { lines: "60,61" },
+                            },
+                          ],
+                          payload: { lines: "27,28" },
+                        },
+                      ],
+                      payload: { lines: "0,1" },
+                    };
+                    window.attackMindmap = markmap.Markmap.create("svg#attack-mindmap", null, data);
+                  })();
+              </script>
+          </div>
+      </div>
 
-    <!-- 其他頁面內容保持不變 -->
-    <div id="cloud-iot" class="page">
-        <!-- 雲端與物聯網安全內容 -->
-    </div>
+      <div id="vulnerability" class="page">
+          <h1>漏洞分析</h1>
+          <div class="card">
+              <h2>漏洞分析知識地圖</h2>
+              <svg id="vuln-mindmap"></svg>
+              <script>
+                  (() => {
+                      // [漏洞分析的 data 保持不變]
+                      const data = {
+                        "content": "🔎 Vulnerability Analysis",
+                        "children": [
+                        {
+                          content: "📑 目錄",
+                          children: [
+                            {
+                              content:
+                                "1. 常見漏洞和暴露 (Common Vulnerabilities and Exposures, CVE)",
+                              children: [],
+                              payload: { lines: "3,4", listIndex: 1 },
+                            },
+                            {
+                              content:
+                                "2. 常見漏洞評分系統 (Common Vulnerability Scoring System, CVSS)",
+                              children: [],
+                              payload: { lines: "4,5", listIndex: 2 },
+                            },
+                            {
+                              content: "3. Windows SMB 漏洞 (Windows SMB Vulnerability)",
+                              children: [],
+                              payload: { lines: "5,6", listIndex: 3 },
+                            },
+                            {
+                              content:
+                                "4. SMBGhost 漏洞分析與驗證 (SMBGhost Vulnerability Analysis and Verification)",
+                              children: [],
+                              payload: { lines: "6,7", listIndex: 4 },
+                            },
+                            {
+                              content: "5. OWASP Top 10 2021 (OWASP Top 10 2021)",
+                              children: [],
+                              payload: { lines: "7,9", listIndex: 5 },
+                            },
+                          ],
+                          payload: { lines: "2,3" },
+                        },
+                        {
+                          content:
+                            "1. 常見漏洞和暴露 (Common Vulnerabilities and Exposures, CVE)",
+                          children: [
+                            {
+                              content: "🔹 CVE 的作用",
+                              children: [
+                                {
+                                  content:
+                                    "由 MITRE 維護，分配給已確認的網路安全漏洞一個唯一識別碼（格式：CVE-YYYY-NNNN）。",
+                                  children: [],
+                                  payload: { lines: "14,15" },
+                                },
+                                {
+                                  content:
+                                    "作為全球標準參考來源，許多漏洞掃描工具依賴 CVE 資訊進行檢測。",
+                                  children: [],
+                                  payload: { lines: "15,17" },
+                                },
+                              ],
+                              payload: { lines: "13,14" },
+                            },
+                            {
+                              content: "🔹 CVE 注意事項",
+                              children: [
+                                {
+                                  content: "零日漏洞：指尚未有修補程式的漏洞。",
+                                  children: [],
+                                  payload: { lines: "18,19" },
+                                },
+                                {
+                                  content:
+                                    "多個 CVE 可描述相同威脅，需根據具體情境選擇合適的應對方法。",
+                                  children: [],
+                                  payload: { lines: "19,21" },
+                                },
+                              ],
+                              payload: { lines: "17,18" },
+                            },
+                          ],
+                          payload: { lines: "11,12" },
+                        },
+                        {
+                          content:
+                            "2. 常見漏洞評分系統 (Common Vulnerability Scoring System, CVSS)",
+                          children: [
+                            {
+                              content: "🔸 CVSS 作用",
+                              children: [
+                                {
+                                  content:
+                                    "作為全球標準，用於評估漏洞的嚴重性，以便建立優先處理順序。",
+                                  children: [],
+                                  payload: { lines: "26,28" },
+                                },
+                              ],
+                              payload: { lines: "25,26" },
+                            },
+                          ],
+                          payload: { lines: "23,24" },
+                        },
+                        {
+                          content: "3. Windows SMB 漏洞 (Windows SMB Vulnerability)",
+                          children: [
+                            {
+                              content: "🔹 SMB 簡介",
+                              children: [
+                                {
+                                  content:
+                                    "SMB（伺服器訊息區塊）主要使用於 Windows 系統，端口 445。",
+                                  children: [],
+                                  payload: { lines: "33,34" },
+                                },
+                                {
+                                  content: "常見用於網路共享、列印和文件存取。",
+                                  children: [],
+                                  payload: { lines: "34,36" },
+                                },
+                              ],
+                              payload: { lines: "32,33" },
+                            },
+                            {
+                              content: "🔹 SMB 版本歷史",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>SMBv1</strong>: 1984 年引入，最脆弱的版本。",
+                                  children: [],
+                                  payload: { lines: "37,38" },
+                                },
+                                {
+                                  content:
+                                    "<strong>SMBv2</strong>: 2006 年改進以支持大文件傳輸。",
+                                  children: [],
+                                  payload: { lines: "38,39" },
+                                },
+                                {
+                                  content:
+                                    "<strong>SMBv3.1.1</strong>: 2020 年引入 AES 加密，強化了安全性。",
+                                  children: [],
+                                  payload: { lines: "39,41" },
+                                },
+                              ],
+                              payload: { lines: "36,37" },
+                            },
+                            {
+                              content: "🔹 主要漏洞",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>EternalBlue (CVE-2017-0143)</strong>: MS17-010 漏洞，讓 WannaCry 勒索軟體得以攻擊 Windows 系統。",
+                                  children: [],
+                                  payload: { lines: "42,43" },
+                                },
+                                {
+                                  content:
+                                    "<strong>SMBGhost (CVE-2020-0796)</strong>: SMBv3 遠程代碼執行漏洞，攻擊者可獲得系統級權限。",
+                                  children: [],
+                                  payload: { lines: "43,45" },
+                                },
+                              ],
+                              payload: { lines: "41,42" },
+                            },
+                          ],
+                          payload: { lines: "30,31" },
+                        },
+                        {
+                          content:
+                            "4. SMBGhost 漏洞分析與驗證 (SMBGhost Vulnerability Analysis and Verification)",
+                          children: [
+                            {
+                              content: "🔹 SMBGhost 的成因",
+                              children: [
+                                {
+                                  content:
+                                    "SMBv3 中的壓縮數據在處理過程中缺乏安全檢查，導致內存溢位。",
+                                  children: [],
+                                  payload: { lines: "50,51" },
+                                },
+                                {
+                                  content:
+                                    "<strong>Srv2DecompressData</strong> 函數在解壓縮過程中未檢查參數，可能導致整數溢位，進而發生內存覆寫。",
+                                  children: [],
+                                  payload: { lines: "51,53" },
+                                },
+                              ],
+                              payload: { lines: "49,50" },
+                            },
+                            {
+                              content: "🔹 攻擊驗證過程",
+                              children: [
+                                {
+                                  content:
+                                    "1. 利用目標系統（Windows 10 1909）上的 SMBGhost 漏洞。",
+                                  children: [],
+                                  payload: { lines: "54,55", listIndex: 1 },
+                                },
+                                {
+                                  content:
+                                    "2. 攻擊者利用反向殼來獲取目標系統的控制權，實現遠程代碼執行。",
+                                  children: [],
+                                  payload: { lines: "55,56", listIndex: 2 },
+                                },
+                                {
+                                  content: "3. 攻擊完成後，目標系統可能會藍屏並重新啟動。",
+                                  children: [],
+                                  payload: { lines: "56,58", listIndex: 3 },
+                                },
+                              ],
+                              payload: { lines: "53,54" },
+                            },
+                          ],
+                          payload: { lines: "47,48" },
+                        },
+                        {
+                          content: "5. OWASP Top 10 2021 (OWASP Top 10 2021)",
+                          children: [
+                            {
+                              content: "🔸 OWASP 介紹",
+                              children: [
+                                {
+                                  content:
+                                    "非營利組織，致力於提高應用程序安全性，發佈了全球知名的 <strong>OWASP Top 10</strong> 安全風險排行榜。",
+                                  children: [],
+                                  payload: { lines: "63,65" },
+                                },
+                              ],
+                              payload: { lines: "62,63" },
+                            },
+                            {
+                              content: "🔹 OWASP Top 10 2021 風險清單",
+                              children: [
+                                {
+                                  content:
+                                    "1. <strong>A01:2021 - Broken Access Control</strong>: 訪問控制的漏洞。",
+                                  children: [],
+                                  payload: { lines: "66,67", listIndex: 1 },
+                                },
+                                {
+                                  content:
+                                    "2. <strong>A02:2021 - Cryptographic Failures</strong>: 加密失敗導致敏感數據暴露。",
+                                  children: [],
+                                  payload: { lines: "67,68", listIndex: 2 },
+                                },
+                                {
+                                  content:
+                                    "3. <strong>A03:2021 - Injection</strong>: 未經驗證的用戶輸入導致命令注入攻擊。",
+                                  children: [],
+                                  payload: { lines: "68,69", listIndex: 3 },
+                                },
+                                {
+                                  content:
+                                    "4. <strong>A04:2021 - Insecure Design</strong>: 設計缺乏安全考量。",
+                                  children: [],
+                                  payload: { lines: "69,70", listIndex: 4 },
+                                },
+                                {
+                                  content:
+                                    "5. <strong>A05:2021 - Security Misconfiguration</strong>: 不當的系統配置。",
+                                  children: [],
+                                  payload: { lines: "70,71", listIndex: 5 },
+                                },
+                                {
+                                  content:
+                                    "6. <strong>A06:2021 - Vulnerable and Outdated Components</strong>: 使用過期或不安全的元件。",
+                                  children: [],
+                                  payload: { lines: "71,72", listIndex: 6 },
+                                },
+                                {
+                                  content:
+                                    "7. <strong>A07:2021 - Identification and Authentication Failures</strong>: 身份驗證漏洞。",
+                                  children: [],
+                                  payload: { lines: "72,73", listIndex: 7 },
+                                },
+                                {
+                                  content:
+                                    "8. <strong>A08:2021 - Software and Data Integrity Failures</strong>: 軟件和數據完整性失敗。",
+                                  children: [],
+                                  payload: { lines: "73,74", listIndex: 8 },
+                                },
+                                {
+                                  content:
+                                    "9. <strong>A09:2021 - Security Logging and Monitoring Failures</strong>: 日誌和監控不足。",
+                                  children: [],
+                                  payload: { lines: "74,75", listIndex: 9 },
+                                },
+                                {
+                                  content:
+                                    "10. <strong>A10:2021 - Server-Side Request Forgery (SSRF)</strong>: 伺服器端請求偽造攻擊。",
+                                  children: [],
+                                  payload: { lines: "75,77", listIndex: 10 },
+                                },
+                              ],
+                              payload: { lines: "65,66" },
+                            },
+                            {
+                              content: "🔸 具體風險描述與緩解措施",
+                              children: [
+                                {
+                                  content:
+                                    "<strong>A01: Broken Access Control</strong>: 驗證用戶參數，避免未授權存取。",
+                                  children: [],
+                                  payload: { lines: "78,79" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A02: Cryptographic Failures</strong>: 確保數據加密，並使用安全密鑰管理。",
+                                  children: [],
+                                  payload: { lines: "79,80" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A03: Injection</strong>: 濾除特殊字符並控制錯誤信息。",
+                                  children: [],
+                                  payload: { lines: "80,81" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A04: Insecure Design</strong>: 實行安全開發生命週期，使用安全設計模式。",
+                                  children: [],
+                                  payload: { lines: "81,82" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A05: Security Misconfiguration</strong>: 僅啟用必要的組件，並定期審查配置。",
+                                  children: [],
+                                  payload: { lines: "82,83" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A06: Vulnerable and Outdated Components</strong>: 定期更新組件，並移除不必要的元件。",
+                                  children: [],
+                                  payload: { lines: "83,84" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A07: Identification and Authentication Failures</strong>: 設置強密碼策略並使用多因素驗證。",
+                                  children: [],
+                                  payload: { lines: "84,85" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A08: Software and Data Integrity Failures</strong>: 保護 CI/CD 管道，確保更新的數據完整性。",
+                                  children: [],
+                                  payload: { lines: "85,86" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A09: Security Logging and Monitoring Failures</strong>: 確保日誌覆蓋所有登入和輸入驗證錯誤。",
+                                  children: [],
+                                  payload: { lines: "86,87" },
+                                },
+                                {
+                                  content:
+                                    "<strong>A10: Server-Side Request Forgery (SSRF)</strong>: 驗證伺服器參數，防止未經授權的內網存取。",
+                                  children: [],
+                                  payload: { lines: "87,89" },
+                                },
+                              ],
+                              payload: { lines: "77,78" },
+                            },
+                          ],
+                          payload: { lines: "60,61" },
+                        },
+                      ],
+                      payload: { lines: "0,1" },
+                    };
+                    window.vulnMindmap = markmap.Markmap.create("svg#vuln-mindmap", null, data);
+                  })();
+              </script>
+          </div>
+      </div>
 
-    <div id="cryptography" class="page">
-        <!-- 密碼學與加密技術內容 -->
-    </div>
+      <script>
+          function showPage(pageId) {
+              const pages = document.getElementsByClassName('page');
+              for (let page of pages) {
+                  page.classList.remove('active');
+              }
+              document.getElementById(pageId).classList.add('active');
 
-    <div id="attack-defense" class="page">
-        <!-- 網路攻防內容 -->
-    </div>
+              // 根據頁面重新調整對應的思維導圖
+              switch(pageId) {
+                  case 'ai-security':
+                      window.aiMindmap && window.aiMindmap.fit();
+                      break;
+                  case 'cloud-iot':
+                      window.cloudMindmap && window.cloudMindmap.fit();
+                      break;
+                  case 'cryptography':
+                      window.cryptoMindmap && window.cryptoMindmap.fit();
+                      break;
+                  case 'attack-defense':
+                      window.attackMindmap && window.attackMindmap.fit();
+                      break;
+                  case 'vulnerability':
+                      window.vulnMindmap && window.vulnMindmap.fit();
+                      break;
+              }
+          }
+      </script>
 
-    <div id="vulnerability" class="page">
-        <!-- 漏洞分析內容 -->
-    </div>
-
-    <script>
+    <!-- <script>
         function showPage(pageId) {
             const pages = document.getElementsByClassName('page');
             for (let page of pages) {
@@ -229,6 +2177,6 @@
                 window.mm.fit();
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>
