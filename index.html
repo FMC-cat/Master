@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多頁面網站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 1rem;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+
+        .page {
+            display: none;
+            padding: 2rem;
+        }
+
+        .active {
+            display: block;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showPage('home')">首頁</a>
+        <a href="#" onclick="showPage('about')">關於我們</a>
+        <a href="#" onclick="showPage('services')">服務項目</a>
+        <a href="#" onclick="showPage('contact')">聯絡我們</a>
+    </nav>
+
+    <div id="home" class="page active">
+        <h1>歡迎來到我們的網站</h1>
+        <p>這是首頁的內容。您可以在這裡放置重要的資訊和最新消息。</p>
+        <p>使用上方的導航列可以瀏覽不同的頁面。</p>
+    </div>
+
+    <div id="about" class="page">
+        <h1>關於我們</h1>
+        <p>這是關於我們的頁面。您可以在這裡介紹您的公司或組織。</p>
+        <p>分享您的故事、願景和使命。</p>
+    </div>
+
+    <div id="services" class="page">
+        <h1>服務項目</h1>
+        <p>這是服務項目頁面。列出您提供的所有服務和產品。</p>
+        <ul>
+            <li>服務項目 1</li>
+            <li>服務項目 2</li>
+            <li>服務項目 3</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="page">
+        <h1>聯絡我們</h1>
+        <p>如果您有任何問題，請隨時與我們聯繫。</p>
+        <p>電話：(02) 1234-5678</p>
+        <p>電子郵件：info@example.com</p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // 隱藏所有頁面
+            const pages = document.getElementsByClassName('page');
+            for (let page of pages) {
+                page.classList.remove('active');
+            }
+
+            // 顯示選定的頁面
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
