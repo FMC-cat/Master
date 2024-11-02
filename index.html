@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>多頁面網站</title>
+    <title>資訊安全研究中心</title>
     <style>
         * {
             margin: 0;
@@ -14,28 +14,39 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            background-color: #f5f5f5;
         }
 
         nav {
-            background-color: #333;
+            background-color: #1a237e;
             padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
-            margin-right: 1rem;
+            margin-right: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
         }
 
         nav a:hover {
-            background-color: #555;
-            border-radius: 4px;
+            background-color: #3949ab;
         }
 
         .page {
             display: none;
             padding: 2rem;
+            margin-top: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .active {
@@ -43,60 +54,199 @@
         }
 
         h1 {
-            margin-bottom: 1rem;
+            color: #1a237e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #1a237e;
+        }
+
+        h2 {
+            color: #283593;
+            margin: 1.5rem 0 1rem 0;
         }
 
         p {
             margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background-color: #e8eaf6;
+            padding: 1rem;
+            border-left: 4px solid #3949ab;
+            margin: 1rem 0;
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#" onclick="showPage('home')">首頁</a>
-        <a href="#" onclick="showPage('about')">關於我們</a>
-        <a href="#" onclick="showPage('services')">服務項目</a>
-        <a href="#" onclick="showPage('contact')">聯絡我們</a>
+        <a href="#" onclick="showPage('ai-security')">AI與資安</a>
+        <a href="#" onclick="showPage('cloud-iot')">雲端與物聯網安全</a>
+        <a href="#" onclick="showPage('cryptography')">密碼學與加密技術</a>
+        <a href="#" onclick="showPage('attack-defense')">網路攻防</a>
+        <a href="#" onclick="showPage('vulnerability')">漏洞分析</a>
     </nav>
 
-    <div id="home" class="page active">
-        <h1>歡迎來到我們的網站</h1>
-        <p>這是首頁的內容。您可以在這裡放置重要的資訊和最新消息。</p>
-        <p>使用上方的導航列可以瀏覽不同的頁面。</p>
+    <div id="ai-security" class="page active">
+        <h1>AI與資訊安全</h1>
+
+        <div class="card">
+            <h2>人工智慧在資安領域的應用</h2>
+            <p>人工智慧技術正在改變資訊安全領域的遊戲規則，提供更智能的防禦機制和威脅檢測能力。</p>
+            <div class="highlight">
+                <h3>主要應用領域：</h3>
+                <ul>
+                    <li>威脅檢測與預防</li>
+                    <li>異常行為分析</li>
+                    <li>自動化回應系統</li>
+                    <li>風險評估</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>AI安全挑戰</h2>
+            <ul>
+                <li>對抗性攻擊（Adversarial Attacks）</li>
+                <li>模型投毒（Model Poisoning）</li>
+                <li>資料隱私保護</li>
+                <li>AI模型安全性驗證</li>
+            </ul>
+        </div>
     </div>
 
-    <div id="about" class="page">
-        <h1>關於我們</h1>
-        <p>這是關於我們的頁面。您可以在這裡介紹您的公司或組織。</p>
-        <p>分享您的故事、願景和使命。</p>
+    <div id="cloud-iot" class="page">
+        <h1>雲端與物聯網安全</h1>
+
+        <div class="card">
+            <h2>雲端安全架構</h2>
+            <p>雲端運算環境中的安全考量和防護策略。</p>
+            <ul>
+                <li>身分認證與存取控制</li>
+                <li>資料加密與保護</li>
+                <li>網路隔離與安全性</li>
+                <li>合規性與稽核</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>IoT設備安全</h2>
+            <div class="highlight">
+                <h3>關鍵安全議題：</h3>
+                <ul>
+                    <li>設備認證機制</li>
+                    <li>通訊加密</li>
+                    <li>韌體更新安全</li>
+                    <li>物理安全防護</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div id="services" class="page">
-        <h1>服務項目</h1>
-        <p>這是服務項目頁面。列出您提供的所有服務和產品。</p>
-        <ul>
-            <li>服務項目 1</li>
-            <li>服務項目 2</li>
-            <li>服務項目 3</li>
-        </ul>
+    <div id="cryptography" class="page">
+        <h1>密碼學與加密技術</h1>
+
+        <div class="card">
+            <h2>現代密碼學基礎</h2>
+            <ul>
+                <li>對稱加密</li>
+                <li>非對稱加密</li>
+                <li>雜湊函數</li>
+                <li>數位簽章</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>新興加密技術</h2>
+            <div class="highlight">
+                <h3>研究領域：</h3>
+                <ul>
+                    <li>後量子密碼學</li>
+                    <li>同態加密</li>
+                    <li>零知識證明</li>
+                    <li>區塊鏈加密技術</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div id="contact" class="page">
-        <h1>聯絡我們</h1>
-        <p>如果您有任何問題，請隨時與我們聯繫。</p>
-        <p>電話：(02) 1234-5678</p>
-        <p>電子郵件：info@example.com</p>
+    <div id="attack-defense" class="page">
+        <h1>網路攻防</h1>
+
+        <div class="card">
+            <h2>攻擊技術分析</h2>
+            <ul>
+                <li>社交工程攻擊</li>
+                <li>DDoS攻擊</li>
+                <li>進階持續性威脅（APT）</li>
+                <li>惡意程式分析</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>防禦策略</h2>
+            <div class="highlight">
+                <h3>核心防禦機制：</h3>
+                <ul>
+                    <li>入侵檢測系統（IDS）</li>
+                    <li>防火牆設置</li>
+                    <li>端點防護</li>
+                    <li>安全監控與響應</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="vulnerability" class="page">
+        <h1>漏洞分析</h1>
+
+        <div class="card">
+            <h2>漏洞評估方法</h2>
+            <ul>
+                <li>靜態程式碼分析</li>
+                <li>動態測試</li>
+                <li>滲透測試</li>
+                <li>模糊測試</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>常見漏洞類型</h2>
+            <div class="highlight">
+                <h3>重要漏洞分類：</h3>
+                <ul>
+                    <li>注入漏洞</li>
+                    <li>跨站腳本攻擊（XSS）</li>
+                    <li>權限提升</li>
+                    <li>配置錯誤</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script>
         function showPage(pageId) {
-            // 隱藏所有頁面
             const pages = document.getElementsByClassName('page');
             for (let page of pages) {
                 page.classList.remove('active');
             }
-
-            // 顯示選定的頁面
             document.getElementById(pageId).classList.add('active');
         }
     </script>
