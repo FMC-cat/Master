@@ -3,9 +3,9 @@ function toggleSidebar() {
     const toggleIcon = document.getElementById("toggleSidebar");
     sidebar.classList.toggle("collapsed");
     if (sidebar.classList.contains("collapsed")) {
-      toggleIcon.src = "/image/white-Nav.svg";
+      toggleIcon.src = "image/white-Nav.svg";
     } else {
-      toggleIcon.src = "/image/black-Nav.svg";
+      toggleIcon.src = "image/black-Nav.svg";
     }
   }
 
